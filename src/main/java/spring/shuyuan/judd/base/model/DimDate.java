@@ -1,0 +1,60 @@
+package spring.shuyuan.judd.base.model;
+
+import lombok.Data;
+
+@Data
+public class DimDate {
+    private String day_code;
+    private String day_long_desc;
+    private String day_medium_desc;
+    private String day_short_desc;
+    private String week_code;
+    private String week_long_desc;
+    private String week_medium_desc;
+    private String week_short_desc;
+    private String week_name;
+    private String ten_day_code;
+    private String ten_day_long_desc;
+    private String ten_day_medium_desc;
+    private String ten_day_short_desc;
+    private String month_code;
+    private String month_long_desc;
+    private String month_medium_desc;
+    private String month_short_desc;
+    private String quarter_code;
+    private String quarter_long_desc;
+    private String quarter_medium_desc;
+    private String quarter_short_desc;
+    private String half_year_code;
+    private String half_long_desc;
+    private String half_medium_desc;
+    private String half_short_desc;
+    private String year_code;
+    private String year_long_desc;
+    private String year_medium_desc;
+    private String year_short_desc;
+    private String all_time_code;
+    private String all_time_desc;
+    private String day_timespan;
+    private String day_end_date;
+    private String week_timespan;
+    private String week_end_date;
+    private String ten_day_timespan;
+    private String ten_day_end_date;
+    private String month_timespan;
+    private String month_end_date;
+    private String quarter_timespan;
+    private String quarter_end_date;
+    private String half_year_timespan;
+    private String half_year_end_date;
+    private String year_timespan;
+    private String year_end_date;
+    private String week_start_date;
+    private String month_start_date;
+    private String quarter_start_date;
+    private String workday_flag;
+    private String weekend_flag;
+    private String load_time;
+    private String last_week_day;
+    private String last_month_day;
+}

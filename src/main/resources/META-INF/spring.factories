@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+spring.shuyuan.judd.base.cache.CacheServiceAutoConfig,\
+spring.shuyuan.judd.base.Bean.SpringBeanAutoConfig,\
+spring.shuyuan.judd.base.GlobalBean
