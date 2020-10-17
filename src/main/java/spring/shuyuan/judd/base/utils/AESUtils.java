@@ -1,8 +1,8 @@
 package spring.shuyuan.judd.base.utils;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -12,8 +12,9 @@ import javax.crypto.spec.SecretKeySpec;
  *
  * @author Sting
  */
+@Slf4j
 public class AESUtils {
-    private static final Logger logger = Logger.getLogger(AESUtils.class);
+
     private static final String defaultCharset = "UTF-8";
     private static final String KEY_AES = "AES";
     private static final String KEY = "7386072b1f94fdd7acaae83cd0f0f1c1";
@@ -81,7 +82,7 @@ public class AESUtils {
                 return new String(result, defaultCharset);
             }
         } catch (Exception e) {
-            logger.error("AES 密文处理异常", e);
+            log.error("AES 密文处理异常", e);
         }
         return null;
     }

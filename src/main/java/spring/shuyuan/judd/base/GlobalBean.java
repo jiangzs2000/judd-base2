@@ -111,6 +111,7 @@ public class GlobalBean implements CommandLineRunner{
     @Bean
     @ConditionalOnProperty(value={"spring.fegin.request.connectTimeoutMillis","spring.fegin.request.readTimeoutMillis"})
     @ConfigurationProperties(prefix = "spring.fegin.request")
+    @ConditionalOnMissingBean
     public Request.Options feignRequestOptions(){
         return new Request.Options();
     }
