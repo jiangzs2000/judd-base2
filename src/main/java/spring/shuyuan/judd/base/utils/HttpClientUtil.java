@@ -63,8 +63,6 @@ public class HttpClientUtil {
         configBuilder.setSocketTimeout(MAX_TIMEOUT);
         // 设置从连接池获取连接实例的超时
         configBuilder.setConnectionRequestTimeout(MAX_TIMEOUT);
-        // 在提交请求之前 测试连接是否可用
-        configBuilder.setStaleConnectionCheckEnabled(true);
         requestConfig = configBuilder.build();
     }
 
@@ -355,20 +353,9 @@ public class HttpClientUtil {
         return res;
     }
 
-
-
-
-
-
-
-
-
-
-
     /**
      * 发送 POST 请求（HTTP），不带输入数据
      *
-     * @param apiUrl
      */
     public static String doPost(String apiUrl) {
         return doPost(apiUrl, new HashMap<String, Object>());
@@ -422,7 +409,6 @@ public class HttpClientUtil {
     /**
      * 发送 POST 请求（HTTP），JSON形式
      *
-     * @param apiUrl
      * @param json   json对象
      */
     public static String doPost(String apiUrl, Object json) {
@@ -463,11 +449,9 @@ public class HttpClientUtil {
         try {
             httpPost.setConfig(requestConfig);
             StringEntity stringEntity = new StringEntity(json.toString(), "UTF-8");
-            Iterator var8 = header.entrySet().iterator();
 
-            while (var8.hasNext()) {
-                Map.Entry<String, String> entry = (Map.Entry) var8.next();
-                httpPost.setHeader((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> stringStringEntry : header.entrySet()) {
+                httpPost.setHeader(((Map.Entry<String, String>) (Map.Entry) stringStringEntry).getKey(), ((Map.Entry<String, String>) (Map.Entry) stringStringEntry).getValue());
             }
 
             httpPost.setEntity(stringEntity);
@@ -617,9 +601,6 @@ public class HttpClientUtil {
 
     /**
      * 发送httpput请求 代码冗余   待优化
-     *
-     * @param apiUrl
-     * @param params
      */
     public static String doPutUrl(String apiUrl, Map<String, Object> params, Map<String, String> header) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -663,8 +644,6 @@ public class HttpClientUtil {
     /**
      * 发送httpPatch请求
      *
-     * @param apiUrl
-     * @param params
      */
     public static String doPatchUrl(String apiUrl, Map<String, Object> params, Map<String, String> header) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -735,6 +714,4 @@ public class HttpClientUtil {
         }
         return httpStr;
     }
-
-
 }
